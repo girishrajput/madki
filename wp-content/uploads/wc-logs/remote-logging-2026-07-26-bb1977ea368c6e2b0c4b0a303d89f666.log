@@ -1,0 +1,1 @@
+2026-07-26T07:09:57+00:00 ERROR Failed to handle the log: Attempt to get an instance of class 'Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer', which doesn't exist.

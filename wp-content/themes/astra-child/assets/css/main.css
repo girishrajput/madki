@@ -1,0 +1,1139 @@
+/**
+ * Main CSS File
+ * 
+ * @package Astra_Child
+ * @since 1.0.0
+ */
+
+/* ============================================
+   Import All Styles
+   ============================================ */
+@import url('variables.css');
+@import url('home.css');
+@import url('responsive.css');
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container Override for Astra */
+.ast-container {
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
+}
+
+/* Utility Classes */
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Selection */
+::selection {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-gray-lighter);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Culinary / Spice Blog Custom Styles
+   ========================================================================== */
+
+/* Page Outer Background */
+.blog-list-page {
+    background-color: #fcfbfa;
+}
+
+.ast-woocommerce-container{
+        max-width: 1200px;
+    margin: 0 auto;
+}
+.content-area.primary{
+margin: 0 auto !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero Banner
+   -------------------------------------------------------------------------- */
+.blog-hero-section {
+    position: relative;
+    background-color: #1f1f1f; /* Dark fallback if image hasn't loaded */
+    background-image: url('assets/images/blog-hero-bg.jpg'); /* Verify image exists in child theme */
+    background-size: cover;
+    background-position: center;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+/* Dark overlay mask for contrast */
+.blog-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.blog-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.blog-hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin: 0 0 8px 0;
+}
+
+.blog-breadcrumbs {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.blog-breadcrumbs a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.blog-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.blog-breadcrumbs .delimiter {
+    margin: 0 6px;
+    color: #e09f3e; /* Accent warm color */
+}
+
+.blog-breadcrumbs .current {
+    color: #e09f3e;
+}
+
+/* --------------------------------------------------------------------------
+   2. Blog Grid & Cards
+   -------------------------------------------------------------------------- */
+.blog-grid-section {
+    padding: 60px 20px;
+}
+
+.blog-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Card Wrapper */
+.culinary-blog-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eae2db;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+}
+
+.culinary-blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Image */
+.card-image-wrapper {
+    height: 210px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.culinary-blog-card:hover .card-image-wrapper img {
+    transform: scale(1.04);
+}
+
+/* Card Body */
+.card-content {
+    padding: 22px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Date Accent */
+.card-date {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #b03825; /* Red / Spice Terracotta accent */
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Post Title */
+.card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.35;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.card-title a {
+    color: #1a1a1a !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.card-title a:hover {
+    color: #b03825 !important;
+}
+
+/* Post Excerpt */
+.card-excerpt {
+    font-size: 0.88rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Read Full Post Button */
+.card-read-more {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #b03825 !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease;
+}
+
+.card-read-more:hover {
+    color: #832415 !important;
+    gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Pagination
+   -------------------------------------------------------------------------- */
+.blog-pagination {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.blog-pagination .page-numbers {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 4px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    color: #333333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.blog-pagination .page-numbers.current,
+.blog-pagination .page-numbers:hover {
+    background: #b03825;
+    color: #ffffff;
+    border-color: #b03825;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Layouts
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .blog-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .blog-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .blog-hero-title {
+        font-size: 2.1rem;
+    }
+    .blog-hero-section {
+        padding: 50px 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   FAQ Custom Template Styles
+   ========================================================================== */
+
+.faq-page-template {
+    background-color: #ffffff;
+    font-family: inherit;
+}
+
+/* --- Hero Banner --- */
+.faq-hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 80px 20px 90px;
+    color: #ffffff;
+}
+
+.faq-hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.faq-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Breadcrumbs */
+.faq-breadcrumbs {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.faq-breadcrumbs a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.faq-breadcrumbs .delimiter {
+    margin: 0 8px;
+    color: #cccccc;
+}
+
+.faq-breadcrumbs .current {
+    color: #e0e0e0;
+}
+
+/* Hero Typography */
+.faq-hero-subtitle {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f28b82; /* Pinkish red subtext color */
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.faq-hero-title {
+    font-size: 3rem;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #ffffff !important;
+    max-width: 650px;
+    margin: 0 0 16px 0;
+}
+
+.faq-hero-description {
+    font-size: 1.05rem;
+    color: #e0e0e0;
+    max-width: 680px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Accordion Grid --- */
+.faq-accordion-section {
+    padding: 60px 20px 90px;
+    background-color: #ffffff;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-accordion-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* FAQ Item Pill Card */
+.faq-item {
+    border: 1px solid #e8e8e8;
+    border-radius: 40px; /* Rounded pill style matching design */
+    background: #ffffff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #d0d0d0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.faq-question-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+.faq-question-btn:hover, .faq-question-btn.active, .faq-question-btn:focus {
+    background-color: #f0f0f0;
+}
+
+.question-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.faq-icon {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #b03825; /* Red '+' icon color */
+    transition: transform 0.3s ease;
+    line-height: 1;
+    margin-left: 15px;
+}
+
+/* Accordion Open State */
+.faq-item.active {
+    border-radius: 20px; /* Smooth transition to box when open */
+    border-color: #b03825;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Turns + into x */
+}
+
+/* Answer Slide Down */
+.faq-answer-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.active .faq-answer-content {
+    max-height: 500px;
+}
+
+.faq-answer-inner {
+    padding: 0 32px 24px;
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.7;
+}
+
+.faq-answer-inner p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 768px) {
+    .faq-hero-title {
+        font-size: 2.1rem;
+    }
+    .faq-hero-section {
+        padding: 50px 20px 60px;
+    }
+    .faq-question-btn {
+        padding: 16px 24px;
+    }
+    .faq-answer-inner {
+        padding: 0 24px 20px;
+    }
+    .question-text {
+        font-size: 0.95rem;
+    }
+    .faq-item {
+        border-radius: 25px;
+    }
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   Contact Custom Page Template Styles
+   ========================================================================== */
+
+.contact-page-template {
+    background-color: #fcfbfa;
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero Banner
+   -------------------------------------------------------------------------- */
+.contact-hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 70px 20px 80px;
+    color: #ffffff;
+}
+
+.contact-hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.contact-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.contact-breadcrumbs {
+    font-size: 0.88rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.contact-breadcrumbs a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.contact-breadcrumbs .delimiter {
+    margin: 0 8px;
+    color: #cccccc;
+}
+
+.contact-breadcrumbs .current {
+    color: #e0e0e0;
+}
+
+.contact-hero-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f28b82; /* Pinkish-red accent label */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.contact-hero-title {
+    font-size: 2.8rem;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #ffffff !important;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Body: Info & Form Grid
+   -------------------------------------------------------------------------- */
+.contact-body-section {
+    padding: 70px 20px;
+}
+
+.contact-container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Left Info Column */
+.contact-intro {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.contact-details-list p {
+    font-size: 0.95rem;
+    color: #333333;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.contact-details-list strong {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.contact-details-list a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.contact-details-list a:hover {
+    color: #b03825;
+}
+
+/* WhatsApp CTA Button */
+.contact-whatsapp-wrapper {
+    margin-top: 30px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25d366;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.whatsapp-btn:hover {
+    background-color: #1eb954;
+    transform: translateY(-2px);
+}
+
+/* Right Form Card */
+.contact-form-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+}
+
+/* HTML Form Styling (also aligns Contact Form 7 / WPForms) */
+.custom-contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.custom-contact-form .form-group {
+    margin-bottom: 16px;
+}
+
+.custom-contact-form input,
+.custom-contact-form textarea,
+.wpcf7-form-control-wrap input,
+.wpcf7-form-control-wrap textarea {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: #333333;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.custom-contact-form textarea,
+.wpcf7-form-control-wrap textarea {
+    border-radius: 20px;
+    resize: vertical;
+}
+
+.custom-contact-form input:focus,
+.custom-contact-form textarea:focus,
+.wpcf7-form-control-wrap input:focus,
+.wpcf7-form-control-wrap textarea:focus {
+    border-color: #b03825;
+}
+
+.submit-btn,
+.wpcf7-submit {
+    background-color: #cd1c1b !important; /* Bold Red CTA */
+    color: #ffffff !important;
+    border: none;
+    padding: 14px 34px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover,
+.wpcf7-submit:hover {
+    background-color: #a71312 !important;
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   3. Google Map Section
+   -------------------------------------------------------------------------- */
+.contact-map-section {
+    padding: 0 20px 80px;
+}
+
+.map-card-wrapper {
+    background: #e5e7eb;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-card-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-placeholder {
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .custom-contact-form .form-row {
+        grid-template-columns: 1fr;
+    }
+    .contact-hero-title {
+        font-size: 2.1rem;
+    }
+    .contact-form-card {
+        padding: 24px;
+    }
+}
+
+
+
+/* ==========================================================================
+   About Page Custom Template Styles
+   ========================================================================== */
+
+.about-page-template {
+    background-color: #fcfbfa;
+}
+
+.about-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero Banner
+   -------------------------------------------------------------------------- */
+.about-hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    padding: 80px 20px 90px;
+    color: #ffffff;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.about-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.about-breadcrumbs {
+    font-size: 0.88rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.about-breadcrumbs a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.about-breadcrumbs .delimiter {
+    margin: 0 8px;
+}
+
+.about-hero-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f28b82;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.about-hero-title {
+    font-size: 3rem;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #ffffff !important;
+    max-width: 650px;
+    margin: 0 0 16px 0;
+}
+
+.about-hero-description {
+    font-size: 1rem;
+    color: #e0e0e0;
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.about-hero-btn {
+    display: inline-block;
+    background-color: #cd1c1b;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.about-hero-btn:hover {
+    background-color: #a71312;
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Mission & Vision Section
+   -------------------------------------------------------------------------- */
+.mission-vision-section {
+    padding: 70px 0 40px;
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mv-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.mv-card-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #cd1c1b;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.mv-card-title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+}
+
+.mv-card-desc {
+    font-size: 0.92rem;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Our Values Section
+   -------------------------------------------------------------------------- */
+.our-values-section {
+    padding: 50px 0;
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #cd1c1b;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.value-card {
+    background: #ffffff;
+    padding: 32px 28px;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.value-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+}
+
+.value-card-desc {
+    font-size: 0.88rem;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Manufacturing Process Section
+   -------------------------------------------------------------------------- */
+.manufacturing-process-section {
+    padding: 60px 0 80px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.process-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.process-content-col .section-title {
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+.process-desc {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Quality Assurance Banner (Red Block)
+   -------------------------------------------------------------------------- */
+.qa-banner-section {
+    background-color: #e00d0d; /* Outer red bar background */
+    padding: 60px 0;
+}
+
+.qa-banner-card {
+    background-color: #a71010; /* Inner rounded container */
+    padding: 44px 50px;
+    border-radius: 24px;
+    color: #ffffff;
+}
+
+.qa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.qa-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f28b82;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.qa-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin: 0;
+}
+
+.qa-desc {
+    font-size: 0.95rem;
+    color: #f1f1f1;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .mission-vision-grid,
+    .process-grid,
+    .qa-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero-title {
+        font-size: 2.1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .qa-banner-card {
+        padding: 30px 24px;
+    }
+}

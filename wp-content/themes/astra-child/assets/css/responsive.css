@@ -1,0 +1,62 @@
+/**
+ * Responsive Styles
+ * 
+ * @package Astra_Child
+ * @since 1.0.0
+ */
+
+/* ============================================
+   Large Desktop - 1400px+
+   ============================================ */
+@media screen and (min-width: 1400px) {
+    .ast-container {
+        max-width: 1320px !important;
+    }
+}
+
+/* ============================================
+   Desktop - 1025px - 1399px
+   ============================================ */
+@media screen and (max-width: 1399px) and (min-width: 1025px) {
+    /* Maintain desktop styles */
+}
+
+/* ============================================
+   Tablet - 769px - 1024px
+   ============================================ */
+@media screen and (max-width: 1024px) {
+    /* Tablet-specific overrides */
+}
+
+/* ============================================
+   Mobile - 481px - 768px
+   ============================================ */
+@media screen and (max-width: 768px) {
+    /* Mobile-specific overrides */
+}
+
+/* ============================================
+   Small Mobile - 320px - 480px
+   ============================================ */
+@media screen and (max-width: 480px) {
+    /* Small mobile overrides */
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+    .hero-section {
+        padding: 20px 0;
+        min-height: auto;
+    }
+    
+    .hero-section .hero-overlay {
+        display: none;
+    }
+    
+    .hero-section .hero-floating-spice,
+    .hero-section .hero-decorative {
+        display: none;
+    }
+}
