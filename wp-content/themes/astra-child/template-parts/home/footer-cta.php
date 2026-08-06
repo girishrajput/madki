@@ -28,7 +28,7 @@ $footer_cta_button_url = !empty($footer_cta_button_url) ? $footer_cta_button_url
 ?>
 
 <!-- Footer CTA Section -->
-<section id="footer-cta" class="footer-cta-section">
+<!-- <section id="footer-cta" class="footer-cta-section">
     <div class="ast-container">
         <div class="footer-cta-wrapper">
             
@@ -65,4 +65,4 @@ $footer_cta_button_url = !empty($footer_cta_button_url) ? $footer_cta_button_url
             
         </div>
     </div>
-</section>
+</section> -->

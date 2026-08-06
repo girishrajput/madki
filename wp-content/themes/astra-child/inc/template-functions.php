@@ -39,12 +39,12 @@ function astra_child_is_acf_active() {
 /**
  * Get ACF field with fallback
  */
-function astra_child_get_field($field_name, $default = '') {
+function astra_child_get_field($field_name, $default = '', $post_id = false) {
     if (!astra_child_is_acf_active()) {
         return $default;
     }
     
-    $value = get_field($field_name);
+    $value = get_field($field_name, $post_id);
     if (empty($value)) {
         return $default;
     }

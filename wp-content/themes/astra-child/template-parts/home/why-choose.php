@@ -13,12 +13,12 @@ if (!defined('ABSPATH')) {
 }
 
 // Get ACF fields
-$section_title = get_field('why_choose_title');
+$section_title    = get_field('why_choose_title');
 $section_subtitle = get_field('why_choose_subtitle');
-$features = get_field('why_choose_features');
+$features         = get_field('features'); // Fixed: Top-level ACF field name is 'features'
 
 // Set defaults
-$section_title = !empty($section_title) ? $section_title : __('Why Choose Madki Masala', 'astra-child');
+$section_title    = !empty($section_title) ? $section_title : __('Why Choose Madki Masala', 'astra-child');
 $section_subtitle = !empty($section_subtitle) ? $section_subtitle : __('Quality, authenticity, and tradition in every spice', 'astra-child');
 ?>
 
@@ -43,54 +43,48 @@ $section_subtitle = !empty($section_subtitle) ? $section_subtitle : __('Quality,
             </div>
         </div>
         
-      
-
-
-
-        <?php 
-// Get the repeater field data
-$features = get_field('features'); 
-
-if (!empty($features) && is_array($features)) : ?>
-    <div class="features-grid">
-        <?php foreach ($features as $feature) : 
-            // Each $feature is a row containing the sub-fields
-            $icon = $feature['icon'] ?? '';
-            $title = $feature['title'] ?? '';
-            $description = $feature['description'] ?? '';
-            
-            $icon_url = '';
-            if (!empty($icon) && is_array($icon) && isset($icon['url'])) {
-                $icon_url = esc_url($icon['url']);
-            } elseif (!empty($icon) && is_string($icon)) {
-                // If icon is just a URL string
-                $icon_url = esc_url($icon);
-            }
-        ?>
-            <div class="feature-card">
-                <?php if (!empty($icon_url)) : ?>
-                    <div class="feature-icon">
-                        <img 
-                            src="<?php echo $icon_url; ?>" 
-                            alt="<?php echo esc_attr($title); ?>"
-                            loading="lazy"
-                            width="80"
-                            height="80"
-                        >
+        <!-- Features Grid -->
+        <?php if (!empty($features) && is_array($features)) : ?>
+            <div class="features-grid">
+                <?php foreach ($features as $feature) : 
+                    $icon        = $feature['icon'] ?? '';
+                    $title       = $feature['title'] ?? '';
+                    $description = $feature['description'] ?? '';
+                    
+                    // Extract Image URL safely regardless of Return Format setting (ID, Array, or URL)
+                    $icon_url = '';
+                    if (is_array($icon) && isset($icon['url'])) {
+                        $icon_url = esc_url($icon['url']);
+                    } elseif (is_string($icon) && !empty($icon)) {
+                        $icon_url = esc_url($icon);
+                    } elseif (is_numeric($icon)) {
+                        $icon_url = esc_url(wp_get_attachment_image_url($icon, 'full'));
+                    }
+                ?>
+                    <div class="feature-card">
+                        <?php if (!empty($icon_url)) : ?>
+                            <div class="feature-icon">
+                                <img 
+                                    src="<?php echo $icon_url; ?>" 
+                                    alt="<?php echo esc_attr($title); ?>"
+                                    loading="lazy"
+                                    width="80"
+                                    height="80"
+                                >
+                            </div>
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($title)) : ?>
+                            <h3 class="feature-title"><?php echo esc_html($title); ?></h3>
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($description)) : ?>
+                            <p class="feature-description"><?php echo esc_html($description); ?></p>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
-                
-                <?php if (!empty($title)) : ?>
-                    <h3 class="feature-title"><?php echo esc_html($title); ?></h3>
-                <?php endif; ?>
-                
-                <?php if (!empty($description)) : ?>
-                    <p class="feature-description"><?php echo esc_html($description); ?></p>
-                <?php endif; ?>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
-<?php endif; ?>
-        
+        <?php endif; ?>
+
     </div>
 </section>

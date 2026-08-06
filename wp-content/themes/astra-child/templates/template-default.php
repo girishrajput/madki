@@ -14,12 +14,16 @@ get_header(); ?>
         <div class="default-page-wrapper">
             
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                <?php
+                $display_title = astra_child_get_field( 'default_page_title', get_the_title() );
+                $subtitle      = astra_child_get_field( 'default_page_subtitle', get_the_excerpt() );
+                ?>
                 
                 <!-- Page Header -->
                 <header class="page-header">
-                    <h1 class="page-title"><?php the_title(); ?></h1>
-                    <?php if (has_excerpt()) : ?>
-                        <p class="page-subtitle"><?php echo esc_html(get_the_excerpt()); ?></p>
+                    <h1 class="page-title"><?php echo esc_html( $display_title ); ?></h1>
+                    <?php if ( $subtitle ) : ?>
+                        <p class="page-subtitle"><?php echo esc_html( $subtitle ); ?></p>
                     <?php endif; ?>
                 </header>
                 

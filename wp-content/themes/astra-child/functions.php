@@ -32,6 +32,7 @@ function astra_child_include_files() {
     // Include ACF functions
     if (function_exists('acf_add_local_field_group')) {
         require_once ASTRA_CHILD_DIR . '/inc/acf.php';
+        require_once ASTRA_CHILD_DIR . '/inc/acf-pages.php';
     }
     
     // Include template functions
@@ -106,7 +107,7 @@ function custom_whatsapp_inquiry_button() {
     global $product;
 
     // REPLACE WITH YOUR PHONE NUMBER (with country code, no + or dash)
-    $phone_number = '919574582139'; 
+    $phone_number = '919876543210'; 
     
     $product_name = rawurlencode( $product->get_name() );
     $product_url  = rawurlencode( get_permalink( $product->get_id() ) );

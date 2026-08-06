@@ -9,14 +9,17 @@
 get_header();
 
 // Fetch ACF Hero Fields
-$hero_bg          = get_field('faq_hero_image');
-$hero_subtitle    = get_field('faq_hero_subtitle') ?: 'FREQUENTLY ASKED QUESTIONS';
-$hero_title       = get_field('faq_hero_title') ?: 'Everything you need to know before ordering.';
-$hero_description = get_field('faq_hero_description') ?: 'Browse our common questions about storage, shipping, payments, and ingredient quality.';
+$hero_bg           = astra_child_get_field( 'faq_hero_image' );
+$hero_subtitle     = astra_child_get_field( 'faq_hero_subtitle' );
+$hero_title        = astra_child_get_field( 'faq_hero_title', get_the_title() );
+$hero_description  = astra_child_get_field( 'faq_hero_description' );
+$breadcrumb_home   = astra_child_get_field( 'faq_breadcrumb_home', __( 'Home', 'astra-child' ) );
+$breadcrumb_current = astra_child_get_field( 'faq_breadcrumb_current', get_the_title() );
 
 // Fallback background image if ACF field is empty
 $default_bg = get_stylesheet_directory_uri() . '/assets/images/faq-hero-bg.jpg';
-$bg_url     = $hero_bg ? $hero_bg : $default_bg;
+$bg_url     = astra_child_get_image_url( $hero_bg );
+$bg_url     = $bg_url ? $bg_url : $default_bg;
 ?>
 
 <main id="main" class="site-main faq-page-template" role="main">
@@ -26,9 +29,9 @@ $bg_url     = $hero_bg ? $hero_bg : $default_bg;
         <div class="faq-hero-overlay"></div>
         <div class="faq-hero-container">
             <nav class="faq-breadcrumbs">
-                <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html( $breadcrumb_home ); ?></a>
                 <span class="delimiter">/</span>
-                <span class="current">FAQ</span>
+                <span class="current"><?php echo esc_html( $breadcrumb_current ); ?></span>
             </nav>
 
             <span class="faq-hero-subtitle"><?php echo esc_html($hero_subtitle); ?></span>
@@ -42,7 +45,7 @@ $bg_url     = $hero_bg ? $hero_bg : $default_bg;
         <div class="faq-container">
             
             <div class="faq-accordion-wrapper">
-                <?php if ( have_rows('faq_list') ) : ?>
+                <?php if ( function_exists( 'have_rows' ) && have_rows('faq_list') ) : ?>
                     
                     <?php 
                     $index = 0;
@@ -63,45 +66,6 @@ $bg_url     = $hero_bg ? $hero_bg : $default_bg;
                             </div>
                         </div>
                     <?php endwhile; ?>
-
-                <?php else : ?>
-
-                    <!-- Fallback Sample Items when ACF field is not filled yet -->
-                    <div class="faq-item">
-                        <button class="faq-question-btn" aria-expanded="false">
-                            <span class="question-text">How should I store Madki spices?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer-content">
-                            <div class="faq-answer-inner">
-                                <p>Store your spices in an airtight container away from direct sunlight, humidity, and heat source to retain maximum freshness and aroma.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question-btn" aria-expanded="false">
-                            <span class="question-text">What is the shelf life of the products?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer-content">
-                            <div class="faq-answer-inner">
-                                <p>Our ground spices and spice powders retain full flavor and essential oils for up to 12 months from the date of packaging when stored under proper conditions.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question-btn" aria-expanded="false">
-                            <span class="question-text">Do you offer shipping across India?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer-content">
-                            <div class="faq-answer-inner">
-                                <p>Yes, we ship across all states and regions in India with standard delivery timelines ranging from 3 to 7 business days.</p>
-                            </div>
-                        </div>
-                    </div>
 
                 <?php endif; ?>
             </div>

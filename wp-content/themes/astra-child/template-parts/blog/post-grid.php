@@ -9,9 +9,16 @@
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : ( ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1 );
 
 // 2. Setup WP Query parameters
+$posts_page_id  = (int) get_option( 'page_for_posts' );
+$posts_per_page = absint( astra_child_get_field( 'blog_posts_per_page', 9, $posts_page_id ) );
+$read_more      = astra_child_get_field( 'blog_read_more_text', __( 'Read Full Post', 'astra-child' ), $posts_page_id );
+$previous_text  = astra_child_get_field( 'blog_previous_text', __( 'Previous', 'astra-child' ), $posts_page_id );
+$next_text      = astra_child_get_field( 'blog_next_text', __( 'Next', 'astra-child' ), $posts_page_id );
+$empty_text     = astra_child_get_field( 'blog_empty_text', __( 'No blog posts found.', 'astra-child' ), $posts_page_id );
+
 $args = array(
     'post_type'      => 'post',
-    'posts_per_page' => 9,
+    'posts_per_page' => $posts_per_page ? $posts_per_page : 9,
     'paged'          => $paged,
     'post_status'    => 'publish',
 );
@@ -41,7 +48,7 @@ $blog_query = new WP_Query( $args );
 
                         <!-- Card Content -->
                         <div class="card-content">
-                            <span class="card-date"><?php echo get_the_date( 'M j, Y' ); ?></span>
+                            <span class="card-date"><?php echo esc_html( get_the_date( 'M j, Y' ) ); ?></span>
                             
                             <h2 class="card-title">
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -52,7 +59,7 @@ $blog_query = new WP_Query( $args );
                             </p>
                             
                             <a href="<?php the_permalink(); ?>" class="card-read-more">
-                                Read Full Post <span class="arrow">&rarr;</span>
+                                <?php echo esc_html( $read_more ); ?> <span class="arrow">&rarr;</span>
                             </a>
                         </div>
 
@@ -67,8 +74,8 @@ $blog_query = new WP_Query( $args );
                 echo paginate_links( array(
                     'total'        => $blog_query->max_num_pages,
                     'current'      => $paged,
-                    'prev_text'    => '&laquo; Previous',
-                    'next_text'    => 'Next &raquo;',
+                    'prev_text'    => '&laquo; ' . esc_html( $previous_text ),
+                    'next_text'    => esc_html( $next_text ) . ' &raquo;',
                     'type'         => 'plain',
                 ) );
                 ?>
@@ -79,7 +86,7 @@ $blog_query = new WP_Query( $args );
         <?php else : ?>
 
             <div class="no-posts-found">
-                <p>No blog posts found.</p>
+                <p><?php echo esc_html( $empty_text ); ?></p>
             </div>
 
         <?php endif; ?>

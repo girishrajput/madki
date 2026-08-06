@@ -22,6 +22,10 @@ function astra_child_get_image_url($image_field, $size = 'full') {
     if (is_array($image_field) && isset($image_field['url'])) {
         return esc_url($image_field['url']);
     }
+
+    if ( is_string( $image_field ) ) {
+        return esc_url( $image_field );
+    }
     
     if (is_numeric($image_field)) {
         $image = wp_get_attachment_image_src($image_field, $size);

@@ -194,6 +194,20 @@ function astra_child_acf_all_fields() {
                 'default_value' => 'Handpicked spices for your culinary journey',
             ),
             array(
+                'key' => 'field_featured_product_button_text',
+                'label' => __('Product Button Label', 'astra-child'),
+                'name' => 'featured_product_button_text',
+                'type' => 'text',
+                'default_value' => 'View Product',
+            ),
+            array(
+                'key' => 'field_featured_products_empty_text',
+                'label' => __('No Products Message', 'astra-child'),
+                'name' => 'featured_products_empty_text',
+                'type' => 'text',
+                'default_value' => 'No published products found.',
+            ),
+            array(
                 'key' => 'field_featured_products',
                 'label' => __('Featured Products', 'astra-child'),
                 'name' => 'featured_products',
@@ -302,7 +316,7 @@ function astra_child_acf_all_fields() {
                         'return_format' => 'array',
                     ),
                     array(
-                        'key' => 'field_why_choose_title',
+                        'key' => 'field_why_choose_feature_title',
                         'label' => __('Title', 'astra-child'),
                         'name' => 'title',
                         'type' => 'text',

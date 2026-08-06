@@ -631,7 +631,8 @@ margin: 0 auto !important;
     font-weight: 800;
     color: #ffffff !important;
     max-width: 600px;
-    margin: 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* --------------------------------------------------------------------------
@@ -1136,4 +1137,51 @@ margin: 0 auto !important;
     .qa-banner-card {
         padding: 30px 24px;
     }
+}
+
+
+.contact-hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+.contact-details-section .container{ 
+    max-width: 1140px;
+    margin: 40px auto; 
+
+}
+
+
+footer a {
+    color: #334155 !important;
 }
