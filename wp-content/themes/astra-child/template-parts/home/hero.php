@@ -31,28 +31,17 @@ $hero_button_text = !empty($hero_button_text) ? $hero_button_text : __('Explore 
 $hero_button_link = !empty($hero_button_link) ? $hero_button_link : '#products';
 
 // Background image style
-$bg_style = '';
-if (!empty($hero_background_image) && isset($hero_background_image['url'])) {
-    $bg_style = 'style="background-image: url(' . esc_url($hero_background_image['url']) . ');"';
-}
+$bg_url = astra_child_get_image_url($hero_background_image);
+$bg_style = $bg_url ? 'style="background-image: url(' . esc_url($bg_url) . ');"' : '';
 
 // Product image URL
-$product_image_url = '';
-if (!empty($hero_product_image) && isset($hero_product_image['url'])) {
-    $product_image_url = esc_url($hero_product_image['url']);
-}
+$product_image_url = astra_child_get_image_url($hero_product_image);
 
 // Floating spice URL
-$floating_spice_url = '';
-if (!empty($hero_floating_spice) && isset($hero_floating_spice['url'])) {
-    $floating_spice_url = esc_url($hero_floating_spice['url']);
-}
+$floating_spice_url = astra_child_get_image_url($hero_floating_spice);
 
 // Decorative element URL
-$decorative_url = '';
-if (!empty($hero_decorative) && isset($hero_decorative['url'])) {
-    $decorative_url = esc_url($hero_decorative['url']);
-}
+$decorative_url = astra_child_get_image_url($hero_decorative);
 ?>
 
 <!-- Hero Section -->

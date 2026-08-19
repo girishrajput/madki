@@ -1182,6 +1182,693 @@ margin: 0 auto !important;
 }
 
 
-footer a {
-    color: #334155 !important;
+/* Footer Link Colors Override */
+.site-footer a,
+.madki-custom-footer a {
+    color: #CBD5E1 !important;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.site-footer a:hover,
+.madki-custom-footer a:hover {
+    color: #F87171 !important;
+}
+
+/* ==========================================================================
+   GLOBAL BRAND SYSTEM & B2B REVISION STYLES
+   ========================================================================== */
+
+/* Primary CTA Buttons */
+.btn-primary,
+.button-primary,
+.about-hero-btn,
+.card-button,
+.product-button,
+.hero-cta-button,
+.cta-button,
+.submit-btn,
+.wpcf7-submit,
+.distributor-cta-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #C0392B !important;
+    color: #FFFFFF !important;
+    font-family: var(--font-primary, 'Poppins', sans-serif);
+    font-weight: 600 !important;
+    font-size: 0.95rem;
+    padding: 12px 26px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(192, 57, 43, 0.2);
+    transition: all 0.25s ease !important;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+.about-hero-btn:hover,
+.card-button:hover,
+.product-button:hover,
+.hero-cta-button:hover,
+.cta-button:hover,
+.submit-btn:hover,
+.wpcf7-submit:hover,
+.distributor-cta-btn:hover {
+    background-color: #A93226 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(169, 50, 38, 0.3);
+}
+
+/* Secondary & Outline Buttons */
+.btn-outline,
+.button-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent !important;
+    color: #C0392B !important;
+    border: 2px solid #C0392B !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-outline:hover,
+.button-outline:hover {
+    background-color: #C0392B !important;
+    color: #FFFFFF !important;
+}
+
+/* Sticky Header Custom Styling */
+.site-header,
+.ast-main-header-wrap {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background-color: #FFFFFF !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease;
+}
+
+.main-header-bar {
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.main-header-menu .menu-item a {
+    font-weight: 600 !important;
+    color: #1E293B !important;
+    padding: 10px 16px !important;
+    transition: color 0.2s ease;
+}
+
+.main-header-menu .menu-item a:hover {
+    color: #C0392B !important;
+}
+
+.main-header-menu .menu-item-contact a,
+.nav-contact-btn {
+    background-color: #C0392B !important;
+    color: #FFFFFF !important;
+    border-radius: 6px !important;
+    padding: 8px 18px !important;
+}
+
+.main-header-menu .menu-item-contact a:hover,
+.nav-contact-btn:hover {
+    background-color: #A93226 !important;
+}
+
+/* 5-Column Custom Footer */
+.madki-custom-footer {
+    background-color: #0F172A;
+    color: #94A3B8;
+    padding: 70px 0 0;
+    font-size: 0.92rem;
+}
+
+.madki-footer-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.madki-footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr;
+    gap: 36px;
+    margin-bottom: 50px;
+}
+
+.footer-col h4 {
+    color: #FFFFFF;
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #C0392B;
+}
+
+.footer-logo {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 16px;
+}
+
+.footer-about-text {
+    line-height: 1.65;
+    margin-bottom: 20px;
+    color: #94A3B8;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 10px;
+}
+
+.footer-links-list a {
+    color: #CBD5E1 !important;
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+.footer-links-list a:hover {
+    color: #F87171 !important;
+    padding-left: 4px;
+}
+
+.footer-contact-info p {
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #CBD5E1;
+}
+
+.footer-contact-info a {
+    color: #CBD5E1 !important;
+    text-decoration: none;
+}
+
+.footer-contact-info a:hover {
+    color: #F87171 !important;
+}
+
+.footer-business-badges {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.badge-item {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #E2E8F0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icons-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.social-icon-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    font-size: 1rem;
+}
+
+.social-icon-link:hover {
+    background-color: #C0392B;
+    transform: translateY(-3px);
+}
+
+/* Two-sided Copyright Bar */
+.madki-copyright-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 18px 0;
+    background-color: #0B1120;
+}
+
+.copyright-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #64748B;
+}
+
+.copyright-left p, .copyright-right p {
+    margin: 0;
+}
+
+.copyright-right a {
+    color: #94A3B8 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.copyright-right a:hover {
+    color: #F87171 !important;
+}
+
+/* 3-Column Nutrition Information Table */
+.nutrition-table-wrapper {
+    margin: 24px 0;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.nutrition-table-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 16px 20px;
+    background-color: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+    margin: 0;
+    color: #1E293B;
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.nutrition-table th {
+    background-color: #F1F5F9;
+    color: #334155;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 20px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.nutrition-table th.num-col,
+.nutrition-table td.num-col {
+    text-align: right;
+}
+
+.nutrition-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #F1F5F9;
+    color: #475569;
+}
+
+.nutrition-table tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+.nutrition-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* B2B Distributor Inquiry Box */
+.distributor-inquiry-box {
+    background-color: #FEF2F2;
+    border: 1px solid #FCA5A5;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+}
+
+.inquiry-notice-text {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #991B1B;
+    margin-bottom: 16px;
+}
+
+.inquiry-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.inquiry-btn-whatsapp {
+    background-color: #25D366 !important;
+    color: #FFF !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.inquiry-btn-whatsapp:hover {
+    background-color: #1EB954 !important;
+}
+
+.inquiry-btn-email {
+    background-color: #1E293B !important;
+    color: #FFF !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.inquiry-btn-email:hover {
+    background-color: #0F172A !important;
+}
+
+/* Career Page Styling */
+.career-hero-section {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    color: #FFF;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.career-hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #FFF !important;
+    margin-bottom: 12px;
+}
+
+.career-grid-section {
+    padding: 60px 20px;
+    background-color: #F8FAFC;
+}
+
+.career-container {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background: #FFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.job-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.job-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin: 0;
+}
+
+.job-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.job-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #F1F5F9;
+    color: #475569;
+}
+
+.job-badge.badge-dept {
+    background: #FEF2F2;
+    color: #991B1B;
+}
+
+.job-badge.badge-type {
+    background: #EFF6FF;
+    color: #1D4ED8;
+}
+
+.job-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #64748B;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.job-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #334155;
+    margin: 16px 0 8px;
+}
+
+.job-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.empty-careers-card {
+    background: #FFF;
+    border: 1px dashed #CBD5E1;
+    border-radius: 16px;
+    padding: 50px 30px;
+    text-align: center;
+    color: #64748B;
+}
+
+.empty-careers-card h3 {
+    font-size: 1.5rem;
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+/* Policy Pages Layout */
+.policy-page-template {
+    background-color: #F8FAFC;
+    padding: 60px 20px 90px;
+}
+
+.policy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #FFF;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.policy-container h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1E293B;
+    margin-bottom: 10px;
+}
+
+.policy-container h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #334155;
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+
+.policy-container p, .policy-container li {
+    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.7;
+}
+
+/* Single Blog Post Detail Layout */
+.single-post-wrapper {
+    background-color: #FFFFFF;
+}
+
+.post-header-hero {
+    background: #0F172A;
+    color: #FFF;
+    padding: 60px 20px 80px;
+    text-align: center;
+}
+
+.post-category-tag {
+    display: inline-block;
+    background-color: #C0392B;
+    color: #FFF;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.post-main-title {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #FFF !important;
+    max-width: 850px;
+    margin: 0 auto 16px;
+}
+
+.post-meta-bar {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.post-featured-image-container {
+    max-width: 960px;
+    margin: -40px auto 40px;
+    padding: 0 20px;
+}
+
+.post-featured-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334155;
+}
+
+.post-content-container h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.post-content-container blockquote {
+    border-left: 4px solid #C0392B;
+    background-color: #FEF2F2;
+    padding: 20px 28px;
+    margin: 30px 0;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: #7F1D1D;
+}
+
+/* Comments Styling */
+.comments-area-custom {
+    max-width: 800px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+}
+
+.comments-area-custom h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 24px;
+}
+
+.comment-form-custom input,
+.comment-form-custom textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .madki-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .madki-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .copyright-flex {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .policy-container {
+        padding: 30px 20px;
+    }
+    .post-main-title {
+        font-size: 2rem;
+    }
 }

@@ -25,6 +25,15 @@ function astra_child_include_files() {
     
     // Include theme setup
     require_once ASTRA_CHILD_DIR . '/inc/theme-setup.php';
+
+    // Include Theme Options
+    require_once ASTRA_CHILD_DIR . '/inc/theme-options.php';
+
+    // Include Career CPT & ACF
+    require_once ASTRA_CHILD_DIR . '/inc/acf-career.php';
+
+    // Include Product ACF options
+    require_once ASTRA_CHILD_DIR . '/inc/acf-products.php';
     
     // Include enqueue functions
     require_once ASTRA_CHILD_DIR . '/inc/enqueue.php';
@@ -128,8 +137,8 @@ function custom_whatsapp_inquiry_button() {
 
 
 // Load ACF Fields Definition
-if ( file_exists( get_template_directory() . '/inc/acf-fields.php' ) ) {
-    require_once get_template_directory() . '/inc/acf-fields.php';
+if ( file_exists( get_stylesheet_directory() . '/inc/acf-fields.php' ) ) {
+    require_once get_stylesheet_directory() . '/inc/acf-fields.php';
 }
 
 // Enqueue Tailwind CSS / Custom Styles if applicable

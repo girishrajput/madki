@@ -53,10 +53,7 @@ $section_subtitle = !empty($section_subtitle) ? $section_subtitle : __('Real rev
                     $rating = isset($testimonial['rating']) ? floatval($testimonial['rating']) : 5;
                     $review = isset($testimonial['review']) ? $testimonial['review'] : '';
                     
-                    $image_url = '';
-                    if (!empty($image) && isset($image['url'])) {
-                        $image_url = esc_url($image['url']);
-                    }
+                    $image_url = astra_child_get_image_url($image);
                     
                     // Generate star rating
                     $stars_html = '';

@@ -32,8 +32,10 @@ $qa_title         = get_field('qa_title') ? get_field('qa_title') : 'Premium spi
 $qa_desc          = get_field('qa_desc') ? get_field('qa_desc') : 'Every batch is tested for freshness, flavor, texture, and packaging integrity. We uphold strict hygiene protocols so our spice blends remain safe, flavorful, and ready for daily cooking.';
 
 // Image URLs
-$bg_url           = $hero_bg ? $hero_bg : get_stylesheet_directory_uri() . '/assets/images/about-hero-bg.jpg';
-$proc_img_url     = $process_image ? $process_image : get_stylesheet_directory_uri() . '/assets/images/process-img.jpg';
+$bg_url           = astra_child_get_image_url( $hero_bg );
+$bg_url           = $bg_url ? $bg_url : get_stylesheet_directory_uri() . '/assets/images/about-hero-bg.jpg';
+$proc_img_url     = astra_child_get_image_url( $process_image );
+$proc_img_url     = $proc_img_url ? $proc_img_url : get_stylesheet_directory_uri() . '/assets/images/process-img.jpg';
 ?>
 
 <main id="main" class="site-main about-page-template" role="main">

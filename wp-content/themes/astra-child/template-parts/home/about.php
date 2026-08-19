@@ -29,15 +29,8 @@ $about_cta_text = !empty($about_cta_text) ? $about_cta_text : __('Learn More Abo
 $about_cta_link = !empty($about_cta_link) ? $about_cta_link : '#';
 
 // Image URLs
-$about_image_url = '';
-if (!empty($about_image) && isset($about_image['url'])) {
-    $about_image_url = esc_url($about_image['url']);
-}
-
-$signature_url = '';
-if (!empty($about_signature) && isset($about_signature['url'])) {
-    $signature_url = esc_url($about_signature['url']);
-}
+$about_image_url = astra_child_get_image_url($about_image);
+$signature_url   = astra_child_get_image_url($about_signature);
 ?>
 
 <!-- About Section -->

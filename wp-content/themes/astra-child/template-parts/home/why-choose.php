@@ -1,90 +1,84 @@
 <?php
 /**
- * Why Choose Madki Section Template
+ * Why Choose Madki Section Template - Red-Toned Accent Style
  * 
  * @package Astra_Child
- * @subpackage Template_Parts
- * @since 1.0.0
  */
 
-// Prevent direct access
 if (!defined('ABSPATH')) {
     exit;
 }
 
-// Get ACF fields
-$section_title    = get_field('why_choose_title');
-$section_subtitle = get_field('why_choose_subtitle');
-$features         = get_field('features'); // Fixed: Top-level ACF field name is 'features'
+$section_title    = get_field('why_choose_title') ?: __('Why Choose Madki Masala', 'astra-child');
+$section_subtitle = get_field('why_choose_subtitle') ?: __('Uncompromising purity, rich heritage, and superior grinding standards.', 'astra-child');
+$features         = get_field('why_choose_features') ?: get_field('features');
 
-// Set defaults
-$section_title    = !empty($section_title) ? $section_title : __('Why Choose Madki Masala', 'astra-child');
-$section_subtitle = !empty($section_subtitle) ? $section_subtitle : __('Quality, authenticity, and tradition in every spice', 'astra-child');
+if ( empty( $features ) || ! is_array( $features ) ) {
+    $features = array(
+        array(
+            'title'       => __( '100% Pure & Unadulterated', 'astra-child' ),
+            'description' => __( 'Sourced directly from certified farms with zero artificial colors or added fillers.', 'astra-child' ),
+            'icon_symbol' => '🌿',
+        ),
+        array(
+            'title'       => __( 'Low-Temperature Grinding', 'astra-child' ),
+            'description' => __( 'Processed under controlled temperatures to retain essential volatile oils and natural aroma.', 'astra-child' ),
+            'icon_symbol' => '⚙️',
+        ),
+        array(
+            'title'       => __( 'Rigorous Quality Checks', 'astra-child' ),
+            'description' => __( 'Tested across multi-level quality parameters ensuring safety, consistency, and compliance.', 'astra-child' ),
+            'icon_symbol' => '🛡️',
+        ),
+        array(
+            'title'       => __( 'Trusted B2B Partner', 'astra-child' ),
+            'description' => __( 'Reliable supply chain, customized packaging sizes, and dedicated distributor support.', 'astra-child' ),
+            'icon_symbol' => '🤝',
+        ),
+    );
+}
 ?>
 
-<!-- Why Choose Section -->
-<section id="why-choose" class="why-choose-section">
-    <div class="ast-container">
+<!-- Red-Toned Why Choose Section -->
+<section id="why-choose" class="why-choose-section" style="position: relative; background: linear-gradient(135deg, #8B0000 0%, #A93226 50%, #7B241C 100%); color: #FFFFFF; padding: 80px 0; overflow: hidden;">
+    
+    <!-- Subtle Background Overlay -->
+    <div style="position: absolute; top:0; left:0; right:0; bottom:0; background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%); pointer-events: none;"></div>
+
+    <div class="ast-container" style="position: relative; z-index: 2;">
         
         <!-- Section Header -->
-        <div class="section-header text-center">
-            <?php if (!empty($section_title)) : ?>
-                <h2 class="section-title"><?php echo esc_html($section_title); ?></h2>
-            <?php endif; ?>
-            
-            <?php if (!empty($section_subtitle)) : ?>
-                <p class="section-subtitle"><?php echo esc_html($section_subtitle); ?></p>
-            <?php endif; ?>
-            
-            <div class="section-divider">
-                <span class="divider-line"></span>
-                <span class="divider-icon">⭐</span>
-                <span class="divider-line"></span>
-            </div>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span style="font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; color: #FCA5A5; text-transform: uppercase; display: block; margin-bottom: 8px;">
+                <?php _e( 'Our Core Promise', 'astra-child' ); ?>
+            </span>
+            <h2 style="font-size: 2.6rem; font-weight: 800; color: #FFFFFF !important; margin: 0 0 12px 0;"><?php echo esc_html($section_title); ?></h2>
+            <p style="font-size: 1.05rem; color: #FEE2E2; max-width: 620px; margin: 0 auto; line-height: 1.6;"><?php echo esc_html($section_subtitle); ?></p>
         </div>
-        
+
         <!-- Features Grid -->
-        <?php if (!empty($features) && is_array($features)) : ?>
-            <div class="features-grid">
-                <?php foreach ($features as $feature) : 
-                    $icon        = $feature['icon'] ?? '';
-                    $title       = $feature['title'] ?? '';
-                    $description = $feature['description'] ?? '';
-                    
-                    // Extract Image URL safely regardless of Return Format setting (ID, Array, or URL)
-                    $icon_url = '';
-                    if (is_array($icon) && isset($icon['url'])) {
-                        $icon_url = esc_url($icon['url']);
-                    } elseif (is_string($icon) && !empty($icon)) {
-                        $icon_url = esc_url($icon);
-                    } elseif (is_numeric($icon)) {
-                        $icon_url = esc_url(wp_get_attachment_image_url($icon, 'full'));
-                    }
-                ?>
-                    <div class="feature-card">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+            <?php foreach ($features as $feature) : 
+                $title       = $feature['title'] ?? '';
+                $description = $feature['description'] ?? '';
+                $icon        = $feature['icon'] ?? '';
+                $icon_symbol = $feature['icon_symbol'] ?? '✨';
+                $icon_url    = !empty($icon) ? astra_child_get_image_url($icon) : '';
+            ?>
+                <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 32px 24px; transition: transform 0.25s ease, background 0.25s ease;">
+                    <div style="font-size: 2.2rem; margin-bottom: 16px;">
                         <?php if (!empty($icon_url)) : ?>
-                            <div class="feature-icon">
-                                <img 
-                                    src="<?php echo $icon_url; ?>" 
-                                    alt="<?php echo esc_attr($title); ?>"
-                                    loading="lazy"
-                                    width="80"
-                                    height="80"
-                                >
-                            </div>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($title)) : ?>
-                            <h3 class="feature-title"><?php echo esc_html($title); ?></h3>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($description)) : ?>
-                            <p class="feature-description"><?php echo esc_html($description); ?></p>
+                            <img src="<?php echo $icon_url; ?>" alt="<?php echo esc_attr($title); ?>" width="50" height="50" style="object-fit: contain;">
+                        <?php else : ?>
+                            <span><?php echo esc_html($icon_symbol); ?></span>
                         <?php endif; ?>
                     </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
+                    
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #FFFFFF !important; margin: 0 0 10px 0;"><?php echo esc_html($title); ?></h3>
+                    <p style="font-size: 0.92rem; color: #FEE2E2; line-height: 1.65; margin: 0;"><?php echo esc_html($description); ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
     </div>
 </section>

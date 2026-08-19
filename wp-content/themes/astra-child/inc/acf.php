@@ -100,6 +100,28 @@ function astra_child_acf_all_fields() {
                     'value' => 'front-page.php',
                 ),
             ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
+                ),
+            ),
         ),
         'menu_order' => 1,
     ));
@@ -166,6 +188,28 @@ function astra_child_acf_all_fields() {
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'front-page.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
                 ),
             ),
         ),
@@ -271,6 +315,28 @@ function astra_child_acf_all_fields() {
                     'value' => 'front-page.php',
                 ),
             ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
+                ),
+            ),
         ),
         'menu_order' => 3,
     ));
@@ -339,6 +405,28 @@ function astra_child_acf_all_fields() {
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'front-page.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
                 ),
             ),
         ),
@@ -426,6 +514,28 @@ function astra_child_acf_all_fields() {
                     'value' => 'front-page.php',
                 ),
             ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
+                ),
+            ),
         ),
         'menu_order' => 5,
     ));
@@ -487,6 +597,28 @@ function astra_child_acf_all_fields() {
                     'value' => 'front-page.php',
                 ),
             ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
+                ),
+            ),
         ),
         'menu_order' => 6,
     ));
@@ -539,6 +671,28 @@ function astra_child_acf_all_fields() {
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'front-page.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_slug',
+                    'operator' => '==',
+                    'value' => 'home',
+                
                 ),
             ),
         ),

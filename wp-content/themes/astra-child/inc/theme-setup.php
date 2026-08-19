@@ -62,8 +62,10 @@ function astra_child_theme_setup() {
      * Register navigation menus
      */
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'astra-child'),
-        'footer'  => __('Footer Menu', 'astra-child'),
+        'primary'             => __('Primary Menu', 'astra-child'),
+        'footer'              => __('Footer Menu', 'astra-child'),
+        'footer_quick_links'  => __('Footer Quick Links', 'astra-child'),
+        'footer_policy_links' => __('Footer Policy Links', 'astra-child'),
     ));
     
     /*

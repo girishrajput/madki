@@ -28,9 +28,10 @@ $cta_button_text = !empty($cta_button_text) ? $cta_button_text : __('Shop Now', 
 $cta_button_url = !empty($cta_button_url) ? $cta_button_url : '#';
 
 // Background style
-$bg_style = 'background-color: ' . esc_attr($cta_background_color) . ';';
-if (!empty($cta_background) && isset($cta_background['url'])) {
-    $bg_style .= ' background-image: url(' . esc_url($cta_background['url']) . ');';
+$cta_bg_url = astra_child_get_image_url($cta_background);
+$bg_style   = 'background-color: ' . esc_attr($cta_background_color) . ';';
+if ($cta_bg_url) {
+    $bg_style .= ' background-image: url(' . esc_url($cta_bg_url) . ');';
     $bg_style .= ' background-size: cover;';
     $bg_style .= ' background-position: center;';
     $bg_style .= ' background-blend-mode: overlay;';
